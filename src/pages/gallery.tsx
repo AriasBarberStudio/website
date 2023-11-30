@@ -206,7 +206,7 @@ export default function Gallery() {
                             Verdun, QC, Canada 🇨🇦<br />
                             H4G 1E4 <br />
                             {/* Phone: (123) 456-7890<br /> */}
-                            {/* Email: info@example.com */}
+                            Email: info@ariasbarberstudio.com
                         </address>
                     </div>
                 </div>
