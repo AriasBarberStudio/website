@@ -304,7 +304,7 @@ export default function Home() {
               Confirm Your Appointment
             </Dialog.Title>
             <Dialog.Description className="mt-2 text-sm text-gray-600">
-              You're about to secure your spot at Arias Barber Studio. Please note that <strong>cancellations must be made at least 24 hours</strong> in advance to avoid a cancellation fee. We look forward to seeing you!
+              You're about to secure your spot at Arias Barber Studio. Please note that <strong>cancellations must be made at least 12 hours</strong> in advance to avoid a cancellation fee. We look forward to seeing you!
             </Dialog.Description>
             <div className="mt-4 flex justify-end gap-4">
               <button
