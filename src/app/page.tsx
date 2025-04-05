@@ -23,10 +23,19 @@ const people = [
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleAppointmentsClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleConfirmBooking = () => {
     window.location.href = "https://squareup.com/appointments/book/q51mj1w3o8fqor/6FDCF5YS0F45W/start"
   };
+
+  // const handleAppointmentsClick = () => {
+  //   window.location.href = "https://squareup.com/appointments/book/q51mj1w3o8fqor/6FDCF5YS0F45W/start"
+  // };
 
   return (
     // <div className="bg-white">
@@ -168,9 +177,9 @@ export default function Home() {
               >
                 BOOK NOW
               </a>
-              <a href="#" className="text-sm font-semibold leading-6 text-gray-200">
-                Learn more <span aria-hidden="true">→</span>
-              </a>
+              {/* <a href="#" className="text-sm font-semibold leading-6 text-gray-200">
+                Terms & Conditions <span aria-hidden="true">→</span>
+              </a> */}
             </div>
           </div>
         </div>
@@ -285,6 +294,35 @@ export default function Home() {
         </div>
       </footer>
 
+
+      {/* Modal Dialog */}
+      <Dialog open={isModalOpen} onClose={() => setIsModalOpen(false)} className="relative z-50">
+        <div className="fixed inset-0 bg-black bg-opacity-50" aria-hidden="true"></div>
+        <div className="fixed inset-0 flex items-center justify-center p-4">
+          <Dialog.Panel className="w-full max-w-md rounded-lg bg-white p-6 shadow-lg">
+            <Dialog.Title className="text-lg font-bold text-gray-900">
+              Confirm Your Appointment
+            </Dialog.Title>
+            <Dialog.Description className="mt-2 text-sm text-gray-600">
+              You're about to secure your spot at Arias Barber Studio. Please note that <strong>cancellations must be made at least 24 hours</strong> in advance to avoid a cancellation fee. We look forward to seeing you!
+            </Dialog.Description>
+            <div className="mt-4 flex justify-end gap-4">
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="rounded-md bg-gray-200 px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-300"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleConfirmBooking}
+                className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500"
+              >
+                Agree
+              </button>
+            </div>
+          </Dialog.Panel>
+        </div>
+      </Dialog>
     </div>
   )
 }
