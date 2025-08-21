@@ -47,13 +47,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: SITE_CONFIG.name,
-    description: SITE_CONFIG.description,
-    site: SITE_CONFIG.twitterHandle,
-    images: [SITE_CONFIG.ogImage],
-  },
   robots: {
     index: true,
     follow: true,
@@ -82,7 +75,6 @@ export default function RootLayout({
     image: `${SITE_CONFIG.baseUrl}/Logo/fulllogo_transparent_nobuffer.png`,
     '@id': SITE_CONFIG.url,
     url: SITE_CONFIG.url,
-    telephone: BUSINESS_INFO.telephone,
     email: BUSINESS_INFO.email,
     priceRange: BUSINESS_INFO.priceRange,
     address: {

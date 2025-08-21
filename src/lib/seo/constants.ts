@@ -2,10 +2,9 @@
 export const SITE_CONFIG = {
   name: 'Arias Barber Studio',
   description: 'Experience precision cuts and timeless style at Arias Barber Studio. Professional barber services in Verdun, Montreal.',
-  url: 'https://ariasbarber.com',
-  baseUrl: process.env.NODE_ENV === 'production' ? 'https://ariasbarber.com/website' : 'http://localhost:3000',
+  url: 'https://ariasbarberstudio.com',
+  baseUrl: process.env.NODE_ENV === 'production' ? 'https://ariasbarberstudio.com/website' : 'http://localhost:3000',
   ogImage: '/Logo/fulllogo_transparent_nobuffer.png',
-  twitterHandle: '@ariasbarber',
   locale: 'en_CA',
   type: 'website',
 } as const;
@@ -19,7 +18,6 @@ export const BUSINESS_INFO = {
     postalCode: 'H4G 1E4',
     addressCountry: 'CA',
   },
-  telephone: '+1-514-XXX-XXXX', // Replace with actual phone
   email: 'info@ariasbarberstudio.com',
   priceRange: '$$',
   openingHours: [

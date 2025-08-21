@@ -60,20 +60,14 @@ export default function Gallery() {
                     name="keywords" 
                     content="barber gallery, haircut examples, beard trim gallery, Montreal barber work, professional hair styling, before after haircuts" 
                 />
-                <link rel="canonical" href="https://ariasbarber.com/website/gallery" />
+                <link rel="canonical" href="https://ariasbarberstudio.com/website/gallery" />
                 
                 {/* Open Graph */}
                 <meta property="og:title" content="Hair Gallery - Expert Cuts & Styles | Arias Barber Studio" />
                 <meta property="og:description" content="Browse our gallery of professional haircuts, beard trims, and styling work." />
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://ariasbarber.com/website/gallery" />
-                <meta property="og:image" content="https://ariasbarber.com/website/Cuts/0.jpeg" />
-                
-                {/* Twitter Cards */}
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Hair Gallery - Expert Cuts & Styles | Arias Barber Studio" />
-                <meta name="twitter:description" content="Browse our gallery of professional haircuts, beard trims, and styling work." />
-                <meta name="twitter:image" content="https://ariasbarber.com/website/Cuts/0.jpeg" />
+                <meta property="og:url" content="https://ariasbarberstudio.com/website/gallery" />
+                <meta property="og:image" content="https://ariasbarberstudio.com/website/Cuts/0.jpeg" />
             </Head>
             <div className="bg-black">
 

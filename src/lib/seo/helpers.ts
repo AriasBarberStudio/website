@@ -9,9 +9,6 @@ export interface SEOMetadata {
   ogDescription?: string;
   ogImage?: string;
   ogType?: 'website' | 'article' | 'profile';
-  twitterTitle?: string;
-  twitterDescription?: string;
-  twitterImage?: string;
   noindex?: boolean;
   nofollow?: boolean;
 }
@@ -65,7 +62,6 @@ export function generateLocalBusinessSchema() {
     image: `${SITE_CONFIG.baseUrl}/Logo/fulllogo_transparent_nobuffer.png`,
     '@id': SITE_CONFIG.url,
     url: SITE_CONFIG.url,
-    telephone: BUSINESS_INFO.telephone,
     email: BUSINESS_INFO.email,
     priceRange: BUSINESS_INFO.priceRange,
     address: {
@@ -127,7 +123,6 @@ export function generateOrganizationSchema() {
     logo: `${SITE_CONFIG.baseUrl}/Logo/fulllogo_transparent_nobuffer.png`,
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: BUSINESS_INFO.telephone,
       contactType: 'Customer Service',
       email: BUSINESS_INFO.email,
     },

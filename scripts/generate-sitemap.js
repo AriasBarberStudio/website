@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const SITE_URL = 'https://ariasbarber.com/website';
+const SITE_URL = 'https://ariasbarberstudio.com/website';
 
 const pages = [
   {

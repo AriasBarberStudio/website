@@ -32,18 +32,13 @@ export default function Contact() {
                     name="keywords" 
                     content="Arias Barber Studio location, barber shop Verdun, Montreal barber address, contact barber Montreal, book appointment barber" 
                 />
-                <link rel="canonical" href="https://ariasbarber.com/website/contact" />
+                <link rel="canonical" href="https://ariasbarberstudio.com/website/contact" />
                 
                 {/* Open Graph */}
                 <meta property="og:title" content="Contact Us - Location & Hours | Arias Barber Studio" />
                 <meta property="og:description" content="Visit us at 4605 Av Bannantyne, Verdun, Montreal. Check our hours and book your appointment." />
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://ariasbarber.com/website/contact" />
-                
-                {/* Twitter Cards */}
-                <meta name="twitter:card" content="summary" />
-                <meta name="twitter:title" content="Contact Us - Location & Hours | Arias Barber Studio" />
-                <meta name="twitter:description" content="Visit us at 4605 Av Bannantyne, Verdun, Montreal. Check our hours and book your appointment." />
+                <meta property="og:url" content="https://ariasbarberstudio.com/website/contact" />
                 
                 {/* Local Business Schema */}
                 <script

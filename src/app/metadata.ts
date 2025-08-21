@@ -26,11 +26,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Professional Barber Services in Montreal | Arias Barber Studio',
-    description: 'Experience precision cuts and timeless style at Arias Barber Studio in Verdun, Montreal.',
-  },
   alternates: {
     canonical: '/',
   },

@@ -15,9 +15,6 @@ export default function SEOHead({
   ogDescription,
   ogImage = SITE_CONFIG.ogImage,
   ogType = 'website',
-  twitterTitle,
-  twitterDescription,
-  twitterImage,
   noindex = false,
   nofollow = false,
   path,
@@ -29,10 +26,6 @@ export default function SEOHead({
   const finalOgTitle = ogTitle || pageTitle;
   const finalOgDescription = ogDescription || description;
   const finalOgImage = ogImage.startsWith('http') ? ogImage : `${SITE_CONFIG.baseUrl}${ogImage}`;
-  
-  const finalTwitterTitle = twitterTitle || finalOgTitle;
-  const finalTwitterDescription = twitterDescription || finalOgDescription;
-  const finalTwitterImage = twitterImage || finalOgImage;
 
   const robotsContent = [
     noindex ? 'noindex' : 'index',
@@ -55,13 +48,6 @@ export default function SEOHead({
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:site_name" content={SITE_CONFIG.name} />
       <meta property="og:locale" content={SITE_CONFIG.locale} />
-      
-      {/* Twitter Cards */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content={SITE_CONFIG.twitterHandle} />
-      <meta name="twitter:title" content={finalTwitterTitle} />
-      <meta name="twitter:description" content={finalTwitterDescription} />
-      <meta name="twitter:image" content={finalTwitterImage} />
       
       {/* Additional meta tags */}
       <meta name="viewport" content="width=device-width, initial-scale=1" />
