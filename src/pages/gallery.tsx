@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
+import Head from 'next/head';
 
 import '../app/globals.css';
 
@@ -48,7 +49,33 @@ export default function Gallery() {
     };
 
     return (
-        <div className="bg-black">
+        <>
+            <Head>
+                <title>Hair Gallery - Expert Cuts & Styles | Arias Barber Studio</title>
+                <meta 
+                    name="description" 
+                    content="Browse our gallery of professional haircuts, beard trims, and styling work. See the quality craftsmanship at Arias Barber Studio in Montreal." 
+                />
+                <meta 
+                    name="keywords" 
+                    content="barber gallery, haircut examples, beard trim gallery, Montreal barber work, professional hair styling, before after haircuts" 
+                />
+                <link rel="canonical" href="https://ariasbarber.com/website/gallery" />
+                
+                {/* Open Graph */}
+                <meta property="og:title" content="Hair Gallery - Expert Cuts & Styles | Arias Barber Studio" />
+                <meta property="og:description" content="Browse our gallery of professional haircuts, beard trims, and styling work." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://ariasbarber.com/website/gallery" />
+                <meta property="og:image" content="https://ariasbarber.com/website/Cuts/0.jpeg" />
+                
+                {/* Twitter Cards */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Hair Gallery - Expert Cuts & Styles | Arias Barber Studio" />
+                <meta name="twitter:description" content="Browse our gallery of professional haircuts, beard trims, and styling work." />
+                <meta name="twitter:image" content="https://ariasbarber.com/website/Cuts/0.jpeg" />
+            </Head>
+            <div className="bg-black">
 
             <header className="absolute inset-x-0 top-0 z-50">
                 <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
@@ -214,5 +241,6 @@ export default function Gallery() {
             </footer>
 
         </div>
+        </>
     )
 }

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import Head from 'next/head';
 
 import '../app/globals.css';
 
@@ -20,7 +21,66 @@ export default function Contact() {
     };
 
     return (
-        <div className="bg-black">
+        <>
+            <Head>
+                <title>Contact Us - Location & Hours | Arias Barber Studio</title>
+                <meta 
+                    name="description" 
+                    content="Visit Arias Barber Studio at 4605 Av Bannantyne, Verdun, Montreal. Check our hours, get directions, and book your appointment today." 
+                />
+                <meta 
+                    name="keywords" 
+                    content="Arias Barber Studio location, barber shop Verdun, Montreal barber address, contact barber Montreal, book appointment barber" 
+                />
+                <link rel="canonical" href="https://ariasbarber.com/website/contact" />
+                
+                {/* Open Graph */}
+                <meta property="og:title" content="Contact Us - Location & Hours | Arias Barber Studio" />
+                <meta property="og:description" content="Visit us at 4605 Av Bannantyne, Verdun, Montreal. Check our hours and book your appointment." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://ariasbarber.com/website/contact" />
+                
+                {/* Twitter Cards */}
+                <meta name="twitter:card" content="summary" />
+                <meta name="twitter:title" content="Contact Us - Location & Hours | Arias Barber Studio" />
+                <meta name="twitter:description" content="Visit us at 4605 Av Bannantyne, Verdun, Montreal. Check our hours and book your appointment." />
+                
+                {/* Local Business Schema */}
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            '@context': 'https://schema.org',
+                            '@type': 'ContactPage',
+                            mainEntity: {
+                                '@type': 'HairSalon',
+                                name: 'Arias Barber Studio',
+                                address: {
+                                    '@type': 'PostalAddress',
+                                    streetAddress: '4605 Av Bannantyne',
+                                    addressLocality: 'Verdun',
+                                    addressRegion: 'QC',
+                                    postalCode: 'H4G 1E4',
+                                    addressCountry: 'CA',
+                                },
+                                geo: {
+                                    '@type': 'GeoCoordinates',
+                                    latitude: '45.458626',
+                                    longitude: '-73.578832',
+                                },
+                                openingHours: [
+                                    'Tu 11:00-18:00',
+                                    'We 11:00-18:00',
+                                    'Th 11:00-18:00',
+                                    'Fr 11:00-18:00',
+                                    'Sa 10:00-17:00',
+                                ],
+                            },
+                        }),
+                    }}
+                />
+            </Head>
+            <div className="bg-black">
 
             <header className="absolute inset-x-0 top-0 z-50">
                 <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
@@ -174,5 +234,6 @@ export default function Contact() {
 
 
         </div>
+        </>
     )
 }
