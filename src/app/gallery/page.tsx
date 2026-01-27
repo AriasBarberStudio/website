@@ -6,21 +6,21 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 const images = [
-  '/website/Cuts/0.jpeg',
-  '/website/Cuts/1.jpeg',
-  '/website/Cuts/2.jpeg',
-  '/website/Cuts/3.jpeg',
-  '/website/Cuts/4.jpeg',
-  '/website/Cuts/5.jpeg',
-  '/website/Cuts/6.jpeg',
-  '/website/Cuts/7.jpeg',
-  '/website/Cuts/8.jpeg',
-  '/website/Cuts/9.jpeg',
-  '/website/Cuts/10.jpeg',
-  '/website/Cuts/11.jpeg',
-  '/website/Cuts/12.jpeg',
-  '/website/Cuts/13.jpeg',
-  '/website/Cuts/14.jpeg',
+  '/Cuts/0.jpeg',
+  '/Cuts/1.jpeg',
+  '/Cuts/2.jpeg',
+  '/Cuts/3.jpeg',
+  '/Cuts/4.jpeg',
+  '/Cuts/5.jpeg',
+  '/Cuts/6.jpeg',
+  '/Cuts/7.jpeg',
+  '/Cuts/8.jpeg',
+  '/Cuts/9.jpeg',
+  '/Cuts/10.jpeg',
+  '/Cuts/11.jpeg',
+  '/Cuts/12.jpeg',
+  '/Cuts/13.jpeg',
+  '/Cuts/14.jpeg',
 ];
 
 export default function Gallery() {
