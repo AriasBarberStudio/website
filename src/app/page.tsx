@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import AppointmentModal from '@/components/AppointmentModal'
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -25,7 +26,8 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleAppointmentsClick = () => {
+  const handleAppointmentsClick = (e: React.MouseEvent) => {
+    e.preventDefault();
     setIsModalOpen(true);
   };
 
@@ -73,7 +75,7 @@ export default function Home() {
             {navigation.map((item) => (
               <a
                 key={item.name}
-                href={item.href}
+                href={item.name === "Appointments" ? "#" : item.href}
                 className="text-s font-bold leading-6 text-gray-200"
                 onClick={item.name === "Appointments" ? handleAppointmentsClick : undefined}
               >
@@ -117,7 +119,7 @@ export default function Home() {
                   {navigation.map((item) => (
                     <a
                       key={item.name}
-                      href={item.href}
+                      href={item.name === "Appointments" ? "#" : item.href}
                       className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                       onClick={item.name === "Appointments" ? handleAppointmentsClick : undefined}
                     >
@@ -170,13 +172,12 @@ export default function Home() {
               Step into a world of grooming excellence and experience the art of crafting timeless styles like never before.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <a
-                href="#"
+              <button
                 onClick={handleAppointmentsClick}
                 className="rounded-md bg-indigo-600 px-10 py-5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 BOOK NOW
-              </a>
+              </button>
               {/* <a href="#" className="text-sm font-semibold leading-6 text-gray-200">
                 Terms & Conditions <span aria-hidden="true">→</span>
               </a> */}
@@ -295,34 +296,11 @@ export default function Home() {
       </footer>
 
 
-      {/* Modal Dialog */}
-      <Dialog open={isModalOpen} onClose={() => setIsModalOpen(false)} className="relative z-50">
-        <div className="fixed inset-0 bg-black bg-opacity-50" aria-hidden="true"></div>
-        <div className="fixed inset-0 flex items-center justify-center p-4">
-          <Dialog.Panel className="w-full max-w-md rounded-lg bg-white p-6 shadow-lg">
-            <Dialog.Title className="text-lg font-bold text-gray-900">
-              Confirm Your Appointment
-            </Dialog.Title>
-            <Dialog.Description className="mt-2 text-sm text-gray-600">
-              You're about to secure your spot at Arias Barber Studio. Please note that <strong>cancellations must be made at least 12 hours</strong> in advance to avoid a cancellation fee. We look forward to seeing you!
-            </Dialog.Description>
-            <div className="mt-4 flex justify-end gap-4">
-              <button
-                onClick={() => setIsModalOpen(false)}
-                className="rounded-md bg-gray-200 px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-300"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={handleConfirmBooking}
-                className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500"
-              >
-                Agree
-              </button>
-            </div>
-          </Dialog.Panel>
-        </div>
-      </Dialog>
+      <AppointmentModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onConfirm={handleConfirmBooking}
+      />
     </div>
   )
 }

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import AppointmentModal from '@/components/AppointmentModal';
 
 import '../app/globals.css';
 import { businessHours, businessAddress } from '../config/businessInfo';
@@ -15,8 +16,14 @@ const navigation = [
 
 export default function Contact() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const handleAppointmentsClick = () => {
+    const handleAppointmentsClick = (e: React.MouseEvent) => {
+        e.preventDefault();
+        setIsModalOpen(true);
+    };
+
+    const handleConfirmBooking = () => {
         window.location.href = "https://squareup.com/appointments/book/q51mj1w3o8fqor/6FDCF5YS0F45W/start"
     };
 
@@ -53,7 +60,7 @@ export default function Contact() {
                         {navigation.map((item) => (
                             <a
                                 key={item.name}
-                                href={item.href}
+                                href={item.name === "Appointments" ? "#" : item.href}
                                 className="text-s font-bold leading-6 text-gray-200"
                                 onClick={item.name === "Appointments" ? handleAppointmentsClick : undefined}
                             >
@@ -97,7 +104,7 @@ export default function Contact() {
                                     {navigation.map((item) => (
                                         <a
                                             key={item.name}
-                                            href={item.href}
+                                            href={item.name === "Appointments" ? "#" : item.href}
                                             className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                             onClick={item.name === "Appointments" ? handleAppointmentsClick : undefined}
                                         >
@@ -169,9 +176,11 @@ export default function Contact() {
                 </div>
             </div>
 
-
-
-
+            <AppointmentModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                onConfirm={handleConfirmBooking}
+            />
         </div>
     )
 }
