@@ -40,7 +40,7 @@ export default function Navbar() {
             <Link href="/" className="-m-1.5 p-1.5 transition-transform hover:scale-105">
               <span className="sr-only">Arias Barber Studio</span>
               <Image
-                src="/website/Logo/fulllogo_transparent_nobuffer.png"
+                src="/Logo/fulllogo_transparent_nobuffer.png"
                 alt="Arias Barber Studio Logo"
                 width={85}
                 height={85}
@@ -98,7 +98,7 @@ export default function Navbar() {
               <Link href="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">Arias Barber Studio</span>
                 <Image
-                  src="/website/Logo/grayscale_transparent.png"
+                  src="/Logo/grayscale_transparent.png"
                   alt="Arias Barber Studio Logo"
                   width={300}
                   height={300}

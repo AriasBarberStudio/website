@@ -10,7 +10,7 @@ const people = [
     name: 'Aria Roz',
     role: 'Founder',
     description: 'An expert of the craft with years of expertise, Aria sculpts hairstyles with a touch of refined finesse that stand the test of time.',
-    imageUrl: '/website/Barbers/Aria/2.jpeg',
+    imageUrl: '/Barbers/Aria/2.jpeg',
   },
 ];
 
@@ -51,7 +51,7 @@ export default function Home() {
           }}
         >
           <Image
-            src="/website/Background/3.jpeg"
+            src="/Background/3.jpeg"
             alt="Barbershop interior"
             fill
             className="object-cover"

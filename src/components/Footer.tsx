@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Logo Section */}
           <div className="flex flex-col items-center md:items-start">
             <Image
-              src="/website/Logo/grayscale_transparent.png"
+              src="/Logo/grayscale_transparent.png"
               alt="Arias Barber Studio Logo"
               width={250}
               height={250}
