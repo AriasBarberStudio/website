@@ -4,6 +4,7 @@ import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 import '../app/globals.css';
+import { businessHours, businessAddress } from '../config/businessInfo';
 
 const navigation = [
     { name: 'Home', href: '/' },
@@ -149,17 +150,15 @@ export default function Contact() {
                                     <div className="max-w-full mx-auto rounded-lg overflow-hidden">
                                         <div className="px-6 py-4">
                                             <h3 className="text-lg font-medium text-white py-6">Our Address</h3>
-                                            <p className="mt-1 text-gray-300">4605 Av Bannantyne, Verdun, QC, Canada 🇨🇦</p>
+                                            <p className="mt-1 text-gray-300">{businessAddress}</p>
                                         </div>
                                         <div className="border-t border-gray-200 px-6 py-4">
                                             <h3 className="text-lg font-medium text-white py-6">Hours</h3>
-                                            <p className="mt-1 text-gray-300">Monday: Closed!</p>
-                                            <p className="mt-1 text-gray-300">Tuesday: 11am - 6pm</p>
-                                            <p className="mt-1 text-gray-300">Wednesday: 11am - 6pm</p>
-                                            <p className="mt-1 text-gray-300">Thursday: 11am - 6pm</p>
-                                            <p className="mt-1 text-gray-300">Friday: 11am - 6pm</p>
-                                            <p className="mt-1 text-gray-300">Saturday: 10am - 5pm</p>
-                                            <p className="mt-1 text-gray-300">Sunday: Closed!</p>
+                                            {businessHours.map((schedule) => (
+                                                <p key={schedule.day} className="mt-1 text-gray-300">
+                                                    {schedule.day}: {schedule.hours}
+                                                </p>
+                                            ))}
                                         </div>
                                     </div>
                                 </div>
