@@ -95,7 +95,7 @@ export default function Navbar() {
           <div className="fixed inset-0 z-50 bg-black/50" />
           <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-rich-black px-6 py-6 sm:max-w-sm border-l-2 border-barber-gold">
             <div className="flex items-center justify-between">
-              <Link href="/" className="-m-1.5 p-1.5">
+              <div className="-m-1.5 p-1.5 pointer-events-none">
                 <span className="sr-only">Arias Barber Studio</span>
                 <Image
                   src="/Logo/grayscale_transparent.png"
@@ -104,9 +104,10 @@ export default function Navbar() {
                   height={300}
                   className="h-auto w-auto"
                 />
-              </Link>
+              </div>
               <button
                 type="button"
+                autoFocus
                 className="-m-2.5 rounded-md p-2.5 text-cream"
                 onClick={() => setMobileMenuOpen(false)}
               >
