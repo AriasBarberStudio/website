@@ -5,6 +5,8 @@ import { Bars3Icon, XMarkIcon, PhoneIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import Image from 'next/image';
 import AppointmentModal from './AppointmentModal';
+import ClosureNoticeModal from './ClosureNoticeModal';
+import { isClosed, closureMessage } from '@/config/businessInfo';
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -18,6 +20,7 @@ const navigation = [
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isClosureModalOpen, setIsClosureModalOpen] = useState(false);
   const bannerRef = useRef<HTMLDivElement>(null);
   const [bannerHeight, setBannerHeight] = useState(0);
 
@@ -30,7 +33,11 @@ export default function Navbar() {
 
   const handleAppointmentsClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    setIsModalOpen(true);
+    if (isClosed()) {
+      setIsClosureModalOpen(true);
+    } else {
+      setIsModalOpen(true);
+    }
   };
 
   const handleConfirmBooking = () => {
@@ -43,12 +50,14 @@ export default function Navbar() {
 
   return (
     <>
-      <div
-        ref={bannerRef}
-        className="fixed inset-x-0 top-0 z-[60] bg-barber-gold text-black text-center text-sm sm:text-base font-semibold px-4 py-2.5 shadow-lg"
-      >
-        👋 Hey, it's Aria — I'm recovering from an arm injury and the studio is closed until end of August. Thank you for your patience, see you soon!
-      </div>
+      {isClosed() && (
+        <div
+          ref={bannerRef}
+          className="fixed inset-x-0 top-0 z-[60] bg-barber-gold text-black text-center text-sm sm:text-base font-semibold px-4 py-2.5 shadow-lg"
+        >
+          {closureMessage}
+        </div>
+      )}
 
       <header
         style={{ top: bannerHeight }}
@@ -172,6 +181,11 @@ export default function Navbar() {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         onConfirm={handleConfirmBooking}
+      />
+
+      <ClosureNoticeModal
+        isOpen={isClosureModalOpen}
+        onClose={() => setIsClosureModalOpen(false)}
       />
     </>
   );

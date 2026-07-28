@@ -4,6 +4,8 @@ import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import AppointmentModal from '@/components/AppointmentModal';
+import ClosureNoticeModal from '@/components/ClosureNoticeModal';
+import { isClosed } from '@/config/businessInfo';
 
 const people = [
   {
@@ -17,6 +19,7 @@ const people = [
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isClosureModalOpen, setIsClosureModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,7 +32,11 @@ export default function Home() {
 
   const handleAppointmentsClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    setIsModalOpen(true);
+    if (isClosed()) {
+      setIsClosureModalOpen(true);
+    } else {
+      setIsModalOpen(true);
+    }
   };
 
   const handleConfirmBooking = () => {
@@ -197,6 +204,11 @@ export default function Home() {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         onConfirm={handleConfirmBooking}
+      />
+
+      <ClosureNoticeModal
+        isOpen={isClosureModalOpen}
+        onClose={() => setIsClosureModalOpen(false)}
       />
     </div>
   );

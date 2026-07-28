@@ -9,3 +9,9 @@ export const businessHours = [
 ];
 
 export const businessAddress = '4605 Av Bannantyne, Verdun, QC, Canada 🇨🇦';
+
+export const closureEndDate = new Date('2026-09-01T00:00:00-04:00');
+
+export const isClosed = () => new Date() < closureEndDate;
+
+export const closureMessage = "👋 Hey, it's Aria — I'm recovering from an arm injury and the studio is closed until early September. Thank you for your patience, see you soon!";
