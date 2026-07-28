@@ -25,7 +25,7 @@ export default function ClosureNoticeModal({ isOpen, onClose }: ClosureNoticeMod
           </div>
 
           <Dialog.Description className="mt-4 text-cream/80 leading-relaxed">
-            👋 Hey, it's Aria — I'm recovering from an arm injury and the studio is closed until early September.
+            👋 Hey, it's Aria — I'm recovering from an arm injury and the studio is closed until end of August.
             Booking isn't available right now, but thank you for your patience. See you soon!
           </Dialog.Description>
 
