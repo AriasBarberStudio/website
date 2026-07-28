@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useRef, useLayoutEffect } from 'react';
 import { Dialog } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon, PhoneIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
@@ -18,6 +18,15 @@ const navigation = [
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const bannerRef = useRef<HTMLDivElement>(null);
+  const [bannerHeight, setBannerHeight] = useState(0);
+
+  useLayoutEffect(() => {
+    const updateHeight = () => setBannerHeight(bannerRef.current?.offsetHeight ?? 0);
+    updateHeight();
+    window.addEventListener('resize', updateHeight);
+    return () => window.removeEventListener('resize', updateHeight);
+  }, []);
 
   const handleAppointmentsClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -34,7 +43,17 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-50 bg-gradient-to-b from-black/80 via-black/60 to-transparent backdrop-blur-sm">
+      <div
+        ref={bannerRef}
+        className="fixed inset-x-0 top-0 z-[60] bg-barber-gold text-black text-center text-sm sm:text-base font-medium px-4 py-2.5"
+      >
+        A quick note: I'm recovering from an arm injury and the studio is closed until early September. <br/> Thank you for your patience, see you soon!
+      </div>
+
+      <header
+        style={{ top: bannerHeight }}
+        className="fixed inset-x-0 z-50 bg-gradient-to-b from-black/80 via-black/60 to-transparent backdrop-blur-sm"
+      >
         <nav className="flex items-center justify-between p-4 lg:px-8" aria-label="Global">
           <div className="flex lg:flex-1">
             <Link href="/" className="-m-1.5 p-1.5 transition-transform hover:scale-105">
