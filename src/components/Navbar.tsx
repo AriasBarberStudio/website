@@ -45,7 +45,7 @@ export default function Navbar() {
     <>
       <div
         ref={bannerRef}
-        className="fixed inset-x-0 top-0 z-[60] bg-barber-gold text-black text-center text-sm sm:text-base font-medium px-4 py-2.5"
+        className="fixed inset-x-0 top-0 z-[60] bg-gradient-gold text-black text-center text-sm sm:text-base font-semibold px-4 py-2.5 shadow-lg"
       >
         👋 Hey, it's Aria — I'm recovering from an arm injury and the studio is closed until early September. Thank you for your patience, see you soon!
       </div>
