@@ -5,8 +5,7 @@ import { Bars3Icon, XMarkIcon, PhoneIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import Image from 'next/image';
 import AppointmentModal from './AppointmentModal';
-import ClosureNoticeModal from './ClosureNoticeModal';
-import { isClosed, closureMessage } from '@/config/businessInfo';
+import { isBeforeReturn, returnMessage } from '@/config/businessInfo';
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -20,7 +19,6 @@ const navigation = [
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isClosureModalOpen, setIsClosureModalOpen] = useState(false);
   const bannerRef = useRef<HTMLDivElement>(null);
   const [bannerHeight, setBannerHeight] = useState(0);
 
@@ -33,11 +31,7 @@ export default function Navbar() {
 
   const handleAppointmentsClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    if (isClosed()) {
-      setIsClosureModalOpen(true);
-    } else {
-      setIsModalOpen(true);
-    }
+    setIsModalOpen(true);
   };
 
   const handleConfirmBooking = () => {
@@ -50,12 +44,12 @@ export default function Navbar() {
 
   return (
     <>
-      {isClosed() && (
+      {isBeforeReturn() && (
         <div
           ref={bannerRef}
           className="fixed inset-x-0 top-0 z-[60] bg-barber-gold text-black text-center text-sm sm:text-base font-semibold px-4 py-2.5 shadow-lg"
         >
-          {closureMessage}
+          {returnMessage}
         </div>
       )}
 
@@ -181,11 +175,6 @@ export default function Navbar() {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         onConfirm={handleConfirmBooking}
-      />
-
-      <ClosureNoticeModal
-        isOpen={isClosureModalOpen}
-        onClose={() => setIsClosureModalOpen(false)}
       />
     </>
   );

@@ -10,8 +10,12 @@ export const businessHours = [
 
 export const businessAddress = '4605 Av Bannantyne, Verdun, QC, Canada 🇨🇦';
 
-export const closureEndDate = new Date('2026-09-01T00:00:00-04:00');
+// Aria is back the second week of September 2026. Bookings stay open the whole
+// time — the notice just tells clients when the first appointments start.
+export const returnDate = new Date('2026-09-07T00:00:00-04:00');
 
-export const isClosed = () => new Date() < closureEndDate;
+export const isBeforeReturn = () => new Date() < returnDate;
 
-export const closureMessage = "👋 Hey, it's Aria — I'm recovering from an arm injury and the studio is closed until end of August. Thank you for your patience, see you soon!";
+export const returnMessage = "👋 Hey, it's Aria — I'll be back as of the 2nd week of September, and bookings are open as of that date. Book your spot now, see you soon!";
+
+export const returnNoticeShort = "I'm back as of the 2nd week of September — appointments are open starting that week.";
