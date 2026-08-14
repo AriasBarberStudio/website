@@ -1,5 +1,6 @@
 import { Dialog } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
+import { isBeforeReturn, returnNoticeShort } from '@/config/businessInfo';
 
 interface AppointmentModalProps {
   isOpen: boolean;
@@ -25,12 +26,19 @@ export default function AppointmentModal({ isOpen, onClose, onConfirm }: Appoint
             </button>
           </div>
           
+          {isBeforeReturn() && (
+            <div className="mb-6 rounded-xl border border-barber-gold/40 bg-barber-gold/10 p-4 text-sm text-cream/90 leading-relaxed">
+              👋 {returnNoticeShort} You'll be taken to our booking page, where the
+              earliest available dates start that week.
+            </div>
+          )}
+
           <Dialog.Description className="mt-4 text-cream/80 leading-relaxed">
             You're about to secure your spot at Arias Barber Studio. Please note that{' '}
             <strong className="text-barber-gold">cancellations must be made at least 12 hours in advance</strong>{' '}
             to avoid a cancellation fee. We look forward to crafting your perfect look!
           </Dialog.Description>
-          
+
           <div className="mt-8 flex flex-col sm:flex-row justify-end gap-3">
             <button
               onClick={onClose}
